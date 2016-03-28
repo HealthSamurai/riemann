@@ -19,7 +19,8 @@
     [org.slf4j/log4j-over-slf4j "1.7.12"]
     [ch.qos.logback/logback-classic "1.1.3"]
     [com.github.juise/logstash-logback-layout "1.0"]
-    [net.logstash.logback/logstash-logback-encoder "4.5"]
+    [net.logstash.logback/logstash-logback-encoder "4.5"
+     :exclusions [com.fasterxml.jackson.core/jackson-core]]
 
     [com.cemerick/pomegranate "0.3.0"
      :exclusions [org.codehaus.plexus/plexus-utils]]
@@ -28,7 +29,7 @@
     [org.spootnik/http-kit "2.1.18.1"]
     [clj-http "2.0.1"]
     [cheshire "5.5.0"]
-    [clj-librato "0.0.5"]
+    [clj-librato "0.0.5" :exclusions [org.jsoup/jsoup clj-http]]
     [clj-time "0.10.0"]
     [clj-wallhack "1.0.1"]
     [com.boundary/high-scale-lib "1.0.6"]
@@ -43,7 +44,9 @@
     [clj-campfire "2.2.0"]
     [clj-nsca "0.0.3"]
     [amazonica "0.3.28" :exclusions [joda-time]]
-    [capacitor "0.4.3" :exclusions [http-kit]]]
+    [capacitor "0.4.3" :exclusions [org.jsoup/jsoup http-kit clj-http]]]
+  
+
   :plugins [[codox "0.6.1"]
             [lein-difftest "2.0.0"]
             [lein-rpm "0.0.5"
